@@ -66,20 +66,7 @@ def assign_personas(n_users, personas=PERSONAS, seed=42):
 
 
 def simulate_session_history(persona_params, rng, window_days=90, tenure_days=None):
-    """
-    Simulate viewing sessions over the last `window_days`, day by day.
-
-    FIX #1 (off-by-one): the old version looped `range(window_days // 7)`,
-    which truncates 90 // 7 = 12 weeks = 84 days -- silently dropping the
-    most recent 6 days from ever being sampled. Simulating day-by-day
-    removes this entire class of bug; every day in [0, window_days) has a
-    chance of a session, including "today".
-
-    FIX #2 (tenure): a user can only have sessions after they joined.
-    If tenure_days < window_days, days before the join day are simply not
-    simulated -- so a new_user with tenure_days=10 can only ever show
-    session activity in the last 10 days of the window, not all 90.
-    """
+    
     decay = persona_params["decay"]
     weekly_lambda = persona_params["session_lambda"]
     daily_lambda_base = weekly_lambda / 7.0
@@ -101,23 +88,42 @@ def simulate_session_history(persona_params, rng, window_days=90, tenure_days=No
 
 
 def derive_features_from_sessions(session_dates, window_days=90):
-    """Convert raw session history into modeling features."""
+    
     if len(session_dates) == 0:
         return {
             "days_since_last_watch": window_days,
             "total_sessions": 0,
             "avg_sessions_per_week": 0.0,
+            "recent_30d_sessions": 0,
+            "prior_30d_sessions": 0,
+            "session_trend_ratio": 0.0,
         }
-
+ 
     last_session = max(session_dates)
     days_since_last_watch = (window_days - 1) - last_session
     total_sessions = len(session_dates)
     avg_sessions_per_week = total_sessions / (window_days / 7)
-
+ 
+    
+    recent_cutoff = window_days - 30
+    prior_cutoff = window_days - 60
+ 
+    recent_30d_sessions = sum(1 for d in session_dates if d >= recent_cutoff)
+    prior_30d_sessions = sum(1 for d in session_dates if prior_cutoff <= d < recent_cutoff)
+ 
+    
+    if prior_30d_sessions == 0:
+        session_trend_ratio = 1.0 if recent_30d_sessions == 0 else 2.0
+    else:
+        session_trend_ratio = recent_30d_sessions / prior_30d_sessions
+ 
     return {
         "days_since_last_watch": days_since_last_watch,
         "total_sessions": total_sessions,
         "avg_sessions_per_week": avg_sessions_per_week,
+        "recent_30d_sessions": recent_30d_sessions,
+        "prior_30d_sessions": prior_30d_sessions,
+        "session_trend_ratio": session_trend_ratio,
     }
 
 
@@ -151,10 +157,7 @@ def generate_genre_diversity(persona_params, rng):
 
 
 def build_user_dataset(n_users=5000, seed=42, window_days=90):
-    # single Generator instance, threaded through every call, instead of
-    # mixing np.random.seed(...) globally with default_rng in one place.
-    # This makes the whole pipeline reproducible from one seed and avoids
-    # the inconsistency flagged earlier (legacy global API vs Generator API).
+    
     rng = np.random.default_rng(seed)
 
     assigned = assign_personas(n_users, personas=PERSONAS, seed=seed)
@@ -176,11 +179,14 @@ def build_user_dataset(n_users=5000, seed=42, window_days=90):
 
         rows.append({
             "user_id": user_id,
-            "persona": persona,  # hidden ground truth -- keep for validation, don't feed to models
+            "persona": persona,  
             "tenure_days": tenure_days,
             "days_since_last_watch": features["days_since_last_watch"],
             "total_sessions": features["total_sessions"],
             "avg_sessions_per_week": features["avg_sessions_per_week"],
+            "recent_30d_sessions": features["recent_30d_sessions"],
+            "prior_30d_sessions": features["prior_30d_sessions"],
+            "session_trend_ratio": features["session_trend_ratio"],
             "avg_completion_rate": completion_rate,
             "genre_diversity": diversity,
             "favorite_genre": favorite_genre,
