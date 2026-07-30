@@ -1,0 +1,41 @@
+segment,method,title,genre,score
+Steady Regulars,genre_based,Colin Quinn: The New York Story,['Stand-Up Comedy'],0.7786498334527094
+Steady Regulars,genre_based,Natalia Valdebenito: Gritona,['Stand-Up Comedy'],0.7694862447212966
+Steady Regulars,genre_based,Loyiso Gola: Unlearning,['Stand-Up Comedy'],0.7687699975895189
+Steady Regulars,genre_based,Marlon Wayans: Woke-ish,['Stand-Up Comedy'],0.7601179685193753
+Steady Regulars,genre_based,Patton Oswalt: Talking for Clapping,['Stand-Up Comedy'],0.759704153603206
+Steady Regulars,similarity_or_popular,Calico Critters: A Town of Dreams,Children & Family Movies,0.22286716876598153
+Steady Regulars,similarity_or_popular,Cleo & Cuquin,Kids' TV,0.2135420395925509
+Steady Regulars,similarity_or_popular,Jamtara - Sabka Number Ayega,"Crime TV Shows, International TV Shows, TV Dramas",0.21292592930549364
+Steady Regulars,similarity_or_popular,The Nutcracker and the Four Realms,Children & Family Movies,0.2084878474959354
+Steady Regulars,similarity_or_popular,Detention Letter,"Action & Adventure, International Movies",0.2072718212489944
+Churning Users,genre_based,Jake's Buccaneer Blast,['Movies'],0.6479815354952643
+Churning Users,genre_based,LeapFrog: Numberland,['Movies'],0.5963465137642138
+Churning Users,genre_based,Bling Empire - The Afterparty,['Movies'],0.5115374046300085
+Churning Users,genre_based,Da Kath & Kim Code,['Movies'],0.4861350864081016
+Churning Users,genre_based,13TH: A Conversation with Oprah Winfrey & Ava DuVernay,['Movies'],0.48077543626304386
+Churning Users,similarity_or_popular,Khotey Sikkey,"Crime TV Shows, International TV Shows, TV Dramas",0.31137311038653587
+Churning Users,similarity_or_popular,Jack Taylor,"Crime TV Shows, International TV Shows, TV Dramas",0.2969902845757321
+Churning Users,similarity_or_popular,Against the Tide,"Crime TV Shows, International TV Shows, TV Dramas",0.2932832762111981
+Churning Users,similarity_or_popular,Busted!,"Crime TV Shows, International TV Shows, Korean TV Shows",0.28934486198642684
+Churning Users,similarity_or_popular,Dirty John,"Crime TV Shows, TV Dramas, TV Mysteries",0.2855109038828423
+Power Bingers,genre_based,Thackeray,['TV Shows'],0.9121422838247144
+Power Bingers,genre_based,HQ Barbers,['TV Shows'],0.9106436834011897
+Power Bingers,genre_based,A Lion in the House,['TV Shows'],0.8997767092739777
+Power Bingers,genre_based,Navarasa,['TV Shows'],0.8965199042421472
+Power Bingers,genre_based,Metallica: Some Kind of Monster,['TV Shows'],0.8859024110807716
+Power Bingers,similarity_or_popular,Fastest Car,Reality TV,0.2332214247651819
+Power Bingers,similarity_or_popular,Pyaar Ka Punchnama 2,"Comedies, Dramas, International Movies",0.21198431045452126
+Power Bingers,similarity_or_popular,Before 30,"International TV Shows, Romantic TV Shows, TV Comedies",0.20843176487658394
+Power Bingers,similarity_or_popular,Lechmi,"Comedies, Horror Movies, International Movies",0.20583326210690406
+Power Bingers,similarity_or_popular,Poshter Girl,"Comedies, Dramas, International Movies",0.18969655510881467
+New / Cold-Start Users,genre_based,Magical Andes,"['Docuseries', 'International TV Shows', 'Science & Nature TV']",0.99627840183587
+New / Cold-Start Users,genre_based,Tiny Creatures,"['Docuseries', 'Science & Nature TV', 'TV Action & Adventure']",0.9953172388058408
+New / Cold-Start Users,genre_based,City in the Sky,"['British TV Shows', 'Docuseries', 'Science & Nature TV']",0.9732112818035656
+New / Cold-Start Users,genre_based,Top 10 Secrets and Mysteries,"['British TV Shows', 'Docuseries', 'Science & Nature TV']",0.941567409049398
+New / Cold-Start Users,genre_based,Flint Town,"['Docuseries', 'Science & Nature TV']",0.9360997956975684
+New / Cold-Start Users,similarity_or_popular,Up Among  The Stars,"Dramas, International Movies, Sci-Fi & Fantasy",0.8478380879237368
+New / Cold-Start Users,similarity_or_popular,The Brothers Grimm,"Action & Adventure, Sci-Fi & Fantasy",0.8454729941024551
+New / Cold-Start Users,similarity_or_popular,Dragonheart 3: The Sorcerer,"Action & Adventure, Sci-Fi & Fantasy",0.8370698428980012
+New / Cold-Start Users,similarity_or_popular,La Rosa de Guadalupe,"Classic & Cult TV, Crime TV Shows, International TV Shows",0.8368507078992908
+New / Cold-Start Users,similarity_or_popular,Superman Returns,"Action & Adventure, Sci-Fi & Fantasy",0.8354397332442918

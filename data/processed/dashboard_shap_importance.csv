@@ -1,0 +1,8 @@
+feature,mean_abs_shap
+avg_completion_rate,0.14526647690446967
+obs_session_trend_ratio,0.11962315988189788
+obs_recent_30d_sessions,0.08581162910858518
+tenure_days,0.05231413611080943
+obs_avg_sessions_per_week,0.04190353204064143
+obs_prior_30d_sessions,0.017738237065618112
+genre_diversity,0.01117519123150779
