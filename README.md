@@ -106,14 +106,16 @@ netflix-churn-analytics/
 
 ### Power BI
 
-
-```markdown
 ![Home Page](reports/screenshots/home.png)
+
 ![Content Overview](reports/screenshots/content_overview.png)
+
 ![Viewer Segments](reports/screenshots/viewer_segments.png)
+
 ![Churn Risk](reports/screenshots/churn_risk.png)
+
 ![Recommendations](reports/screenshots/recommendations.png)
-```
+
 
 ### Streamlit (live demo)
 
